@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aravithan Portfolio</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #f5f7fb;
+        color: #222;
+      }
+
+      /* Navbar */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: #28005d;
+        padding: 20px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      nav ul {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #ffd369;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px;
+        background: linear-gradient(to right, #28005d, #45008a);
+        color: white;
+      }
+
+      .hero-content h1 {
+        font-size: 55px;
+        margin-bottom: 20px;
+      }
+
+      .hero-content h3 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #ffd369;
+      }
+
+      .hero-content p {
+        max-width: 700px;
+        line-height: 1.8;
+        margin: auto;
+        font-size: 18px;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 14px 28px;
+        background: #ffd369;
+        color: black;
+        text-decoration: none;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+      }
+
+      /* Common Section */
+      section {
+        padding: 90px 8%;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 40px;
+        color: #28005d;
+        margin-bottom: 50px;
+      }
+
+      /* About */
+      .about-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        align-items: center;
+      }
+
+      .about-image {
+        display: flex;
+        justify-content: center;
+      }
+
+      .about-image div {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: #28005d;
+      }
+
+      .about-content p {
+        line-height: 1.9;
+        font-size: 18px;
+      }
+
+      /* Cards */
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      .card {
+        background: white;
+        padding: 30px;
+        border-radius: 18px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+      }
+
+      .card h3 {
+        color: #28005d;
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+
+      .card h4 {
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .card p {
+        line-height: 1.8;
+      }
+
+      /* Skills */
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .skill-box {
+        background: #28005d;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+
+      .skill-box:hover {
+        background: #45008a;
+        transform: scale(1.05);
+      }
+
+      /* Contact Section */
+      #contact {
+        background: #ffffff;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .contact-card {
+        background: white;
+        padding: 35px 25px;
+        border-radius: 18px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-8px);
+      }
+
+      .contact-card h3 {
+        color: #28005d;
+        margin-bottom: 15px;
+        font-size: 24px;
+      }
+
+      .contact-card a {
+        text-decoration: none;
+        color: #444;
+        font-size: 16px;
+        word-break: break-word;
+      }
+
+      .contact-card a:hover {
+        color: #28005d;
+      }
+
+      /* Footer */
+      footer {
+        background: #28005d;
+        color: white;
+        text-align: center;
+        padding: 25px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        nav ul {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .hero-content h1 {
+          font-size: 38px;
+        }
+
+        .hero-content h3 {
+          font-size: 22px;
+        }
+
+        .about-container,
+        .grid-container {
+          grid-template-columns: 1fr;
+        }
+
+        .about-image div {
+          width: 220px;
+          height: 220px;
+        }
+
+        .section-title {
+          font-size: 32px;
+        }
+
+        @media (max-width: 768px) {
+          .contact-container {
+            grid-template-columns: 1fr;
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header>
+      <div class="logo">Aravithan S S</div>
+
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Hi, I'm Aravithan</h1>
+        <h3>Full Stack Developer</h3>
+
+        <p>
+          Passionate Full Stack Developer interested in creating responsive web
+          applications and backend systems using modern technologies.
+        </p>
+
+        <a href="#projects" class="btn">View Projects</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about-container">
+        <div class="about-image">
+          <div></div>
+        </div>
+
+        <div class="about-content">
+          <p>
+            I'm Aravithan S S, a passionate Full Stack Developer interested in
+            building responsive and modern web applications. I enjoy both
+            frontend and backend development and love creating user-friendly
+            websites and scalable applications.
+          </p>
+
+          <br />
+
+          <p>
+            I completed my degree at Sourashtra College and currently work as a
+            Full Stack Developer at Gegosoft Technologies.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+
+      <div class="grid-container">
+        <div class="card">
+          <h3>Full Stack Developer Trainee</h3>
+          <h4>Gegosoft Technologies</h4>
+
+          <p>
+            Worked for 6 months as a trainee in Full Stack Development and
+            gained experience in frontend development, backend APIs, database
+            management, and responsive web design.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Full Stack Developer</h3>
+          <h4>Gegosoft Technologies</h4>
+
+          <p>
+            Currently working as a Full Stack Developer and handling real-world
+            projects with React.js, Next.js, Node.js, MongoDB, and API
+            integrations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="grid-container">
+        <div class="card">
+          <h3>Telegram Chatbot</h3>
+
+          <p>
+            Developed a Telegram chatbot using Python and NLP technologies. The
+            bot returns relevant images based on client queries and provides
+            image download options.
+          </p>
+
+          <br />
+
+          <p>
+            Images are automatically deleted from the chat within 5 minutes for
+            better storage and chat management.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>E-Commerce Website</h3>
+
+          <p>
+            Created a responsive e-commerce website with Admin and User roles.
+            Admin can manage products using CRUD operations.
+          </p>
+
+          <br />
+
+          <p>
+            Users can browse dress collections, purchase products, and make
+            payments through integrated payment gateway functionality.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills-container">
+        <div class="skill-box">HTML</div>
+        <div class="skill-box">CSS</div>
+        <div class="skill-box">JavaScript</div>
+        <div class="skill-box">React JS</div>
+        <div class="skill-box">Next JS</div>
+        <div class="skill-box">Tailwind CSS</div>
+        <div class="skill-box">Node JS</div>
+        <div class="skill-box">MongoDB</div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+
+      <div class="contact-container">
+        <!-- Email -->
+        <div class="contact-card">
+          <h3>Email</h3>
+          <a href="mailto:yourmail@gmail.com">ssaravithan@gmail.com</a>
+        </div>
+
+        <!-- LinkedIn -->
+        <div class="contact-card">
+          <h3>LinkedIn</h3>
+          <a
+            href="https://www.linkedin.com/in/aravithan-s-s-a6243b2b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            target="_blank"
+          >
+            linkedin.com/in/yourprofile
+          </a>
+        </div>
+
+        <!-- GitHub -->
+        <div class="contact-card">
+          <h3>GitHub</h3>
+          <a href="https://github.com/Aravithanss" target="_blank">
+            github.com/yourusername
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 Aravithan S S | Full Stack Developer</p>
+    </footer>
+  </body>
+</html>
